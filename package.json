@@ -1,0 +1,25 @@
+{
+  "name": "webperf-tester",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Webb-UI och API som kör webperf_core-tester via Docker",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch-path=server server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js --production",
+    "pull-image": "docker pull webperfse/webperf-core:latest"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.7"
+  }
+}

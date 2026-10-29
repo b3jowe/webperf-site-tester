@@ -1,0 +1,380 @@
+:root {
+  --b3-color-text: #1b1f24;
+  --b3-color-muted: #555e68;
+  --b3-color-bg: #f5f6f8;
+  --b3-color-surface: #ffffff;
+  --b3-color-border: #d0d5db;
+  --b3-color-primary: #0b5cad;
+  --b3-color-good: #1a6d32;
+  --b3-color-ok: #8a5a00;
+  --b3-color-poor: #b3261e;
+  --b3-radius: 6px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--b3-color-text);
+  background: var(--b3-color-bg);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--b3-color-primary);
+  outline-offset: 2px;
+}
+
+code {
+  background: rgb(0 0 0 / 6%);
+  padding: 0 0.25em;
+  border-radius: 3px;
+}
+
+/* App */
+.b3-app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.b3-app__title {
+  margin: 0;
+}
+
+.b3-app__lead {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--b3-color-muted);
+}
+
+.b3-app__main {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.b3-app__sidebar {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.b3-app__empty {
+  color: var(--b3-color-muted);
+}
+
+@media (max-width: 800px) {
+  .b3-app__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Alert */
+.b3-alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--b3-radius);
+  margin-bottom: 1.5rem;
+}
+
+.b3-alert p {
+  margin: 0;
+}
+
+.b3-alert--warning {
+  background: #fff4d6;
+  border: 1px solid #e0b84c;
+}
+
+/* Button */
+.b3-button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--b3-color-border);
+  border-radius: var(--b3-radius);
+  background: var(--b3-color-surface);
+  color: var(--b3-color-text);
+  cursor: pointer;
+}
+
+.b3-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.b3-button--primary {
+  background: var(--b3-color-primary);
+  border-color: var(--b3-color-primary);
+  color: #fff;
+  width: 100%;
+}
+
+.b3-button--link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--b3-color-primary);
+  text-decoration: underline;
+}
+
+/* Job form */
+.b3-job-form,
+.b3-job-list,
+.b3-job-detail,
+.b3-result {
+  background: var(--b3-color-surface);
+  border: 1px solid var(--b3-color-border);
+  border-radius: var(--b3-radius);
+  padding: 1rem;
+}
+
+.b3-job-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.b3-job-form__title,
+.b3-job-list__title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.b3-job-form__label {
+  font-weight: 600;
+}
+
+.b3-job-form__input {
+  font: inherit;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #8a939d;
+  border-radius: var(--b3-radius);
+}
+
+.b3-job-form__row {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.b3-job-form__fieldset {
+  border: 1px solid var(--b3-color-border);
+  border-radius: var(--b3-radius);
+  margin: 0;
+  padding: 0.5rem 0.75rem 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.b3-job-form__legend {
+  font-weight: 600;
+  padding: 0 0.25rem;
+}
+
+.b3-job-form__quick {
+  display: flex;
+  gap: 1rem;
+}
+
+.b3-job-form__check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.b3-job-form__check input {
+  margin-top: 0.3rem;
+}
+
+.b3-job-form__check-name {
+  display: block;
+}
+
+.b3-job-form__check-description {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--b3-color-muted);
+}
+
+.b3-job-form__error,
+.b3-job-detail__error {
+  color: var(--b3-color-poor);
+  margin: 0;
+}
+
+/* Job list */
+.b3-job-list__items {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.b3-job-list__item {
+  font: inherit;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--b3-color-border);
+  border-radius: var(--b3-radius);
+  background: var(--b3-color-surface);
+  cursor: pointer;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.b3-job-list__item--selected {
+  border-color: var(--b3-color-primary);
+  box-shadow: inset 4px 0 0 var(--b3-color-primary);
+}
+
+.b3-job-list__url {
+  overflow-wrap: anywhere;
+}
+
+.b3-job-list__meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--b3-color-muted);
+}
+
+.b3-job-list__empty {
+  color: var(--b3-color-muted);
+  margin: 0.5rem 0 0;
+}
+
+/* Status */
+.b3-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  border: 1px solid currentcolor;
+}
+
+.b3-status--done {
+  color: var(--b3-color-good);
+}
+
+.b3-status--running,
+.b3-status--queued {
+  color: var(--b3-color-primary);
+}
+
+.b3-status--failed {
+  color: var(--b3-color-poor);
+}
+
+.b3-status--cancelled {
+  color: var(--b3-color-muted);
+}
+
+/* Job detail */
+.b3-job-detail {
+  display: grid;
+  gap: 1rem;
+}
+
+.b3-job-detail__header {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+
+.b3-job-detail__title {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.b3-job-detail__meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.b3-job-detail__tests {
+  margin: 0;
+  color: var(--b3-color-muted);
+  font-size: 0.9rem;
+}
+
+.b3-job-detail__parts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.b3-job-detail__part {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+/* Result */
+.b3-result__title {
+  margin: 0 0 0.75rem;
+}
+
+.b3-result__ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.b3-result__report summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+
+.b3-result__text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+  background: var(--b3-color-bg);
+  padding: 0.75rem;
+  border-radius: var(--b3-radius);
+  max-height: 32rem;
+  overflow: auto;
+}
+
+/* Rating */
+.b3-rating {
+  display: grid;
+  justify-items: center;
+  min-width: 7rem;
+  padding: 0.5rem;
+  border-radius: var(--b3-radius);
+  border: 2px solid currentcolor;
+}
+
+.b3-rating__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.b3-rating__label {
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--b3-color-text);
+}
+
+.b3-rating--good {
+  color: var(--b3-color-good);
+}
+
+.b3-rating--ok {
+  color: var(--b3-color-ok);
+}
+
+.b3-rating--poor {
+  color: var(--b3-color-poor);
+}
